@@ -1,59 +1,38 @@
 ﻿@model UserProfile
 
 @{
-    ViewData["Title"] = "J. Doe profile page";
+    ViewData["Title"] = Model.FullName + " profile page";
 }
 
-<h1>Profile Page</h1>
-
-<div>
-    <h4>UserProfile</h4>
-    <hr />
-    <dl class="row">
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.UserProfileId)
-        </dt>
-        <dd class = "col-sm-10">
-            @Model.UserProfileId
-        </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.FullName)
-        </dt>
-        <dd class = "col-sm-10">
-            @Model.FullName
-        </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.Email)
-        </dt>
-        <dd class = "col-sm-10">
-            @Model.Email
-        </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.PhoneNumber)
-        </dt>
-        <dd class = "col-sm-10">
-            @Model.PhoneNumber
-        </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.ImageUrl)
-        </dt>
-        <dd class = "col-sm-10">
-            @Model.ImageUrl
-        </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.GitHubUrl)
-        </dt>
-        <dd class = "col-sm-10">
-            @Model.GitHubUrl
-        </dd>
-        <dt>Skilled Languages</dt>
-        <dd>
-            <ul>
-                @foreach(string languageSkill in Model.SkilledLanguages)
-                {
-                    <li>@languageSkill</li>
-                }
-            </ul>
-        </dd>
-    </dl>
+<div class="container py-5">
+    <div class="row justify-content-center">
+        <div class="col-md-8">
+            <div class="card shadow-sm">
+                <div class="card-body">
+                    <div class="row align-items-center mb-4">
+                        <div class="col-auto">
+                            <img src="@Model.ImageUrl" alt="Profile Image" class="rounded-circle border" style="width: 100px; height: 100px; object-fit: cover;">
+                        </div>
+                        <div class="col">
+                            <h2 class="card-title mb-0">@Model.FullName</h2>
+                            <a href="mailto:@Model.Email?Contacting%20From%20Your%20Profile%20On%20ModelBindingStyling_Lab" class="text-muted mb-0">@Model.Email</a>
+                        </div>
+                    </div>
+                    <dl class="row mb-4">
+                        <dt class="col-sm-4">@Html.DisplayNameFor(model => model.PhoneNumber)</dt>
+                        <dd class="col-sm-8">@Model.PhoneNumber</dd>
+                        <dt class="col-sm-4">@Html.DisplayNameFor(model => model.GitHubUrl)</dt>
+                        <dd class="col-sm-8">@Model.GitHubUrl</dd>
+                    </dl>
+                    <h5>Skilled Languages</h5>
+                    <ul class="list-group list-group-horizontal-md flex-wrap mb-0">
+                        @foreach(string languageSkill in Model.SkilledLanguages)
+                        {
+                            <li class="list-group-item border-0 bg-info rounded-pill me-2 mb-2 px-3 py-1">@languageSkill</li>
+                        }
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
 </div>

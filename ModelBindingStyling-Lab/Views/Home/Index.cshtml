@@ -2,13 +2,27 @@
     ViewData["Title"] = "Home Page";
 }
 
-<div class="text-center">
-    <h1 class="display-4">ModelBinding Styling!</h1>
-    <p>
-        Your task for this project is to style the two pages linked below. You may do custom CSS or
-        use a framework like <a href="https://getbootstrap.com">Bootstrap</a>
-    </p>
-    <p><a asp-controller="Home" asp-action="UserProfile">User Profile Page</a></p>
-    <p><a asp-action="PrinterList">3D Printer List</a></p>
+<div class="container py-5">
+    <div class="row justify-content-center">
+        <div class="col-md-8">
+            <div class="card shadow-sm border-0">
+                <div class="card-body text-center">
+                    <h1 class="display-4 mb-3 text-primary fw-bold">ModelBinding Styling!</h1>
+                    <p class="lead mb-4">
+                        Your task for this project is to style the two pages linked below. You may do custom CSS or
+                        use a framework like <a href="https://getbootstrap.com" target="_blank" class="link-primary fw-semibold">Bootstrap</a>
+                    </p>
+                    <div class="d-grid gap-3 col-6 mx-auto">
+                        <a asp-controller="Home" asp-action="UserProfile" class="btn btn-outline-info btn-lg rounded-pill fw-semibold">
+                            <i class="bi bi-person-circle me-2"></i> User Profile Page
+                        </a>
+                        <a asp-action="PrinterList" class="btn btn-outline-success btn-lg rounded-pill fw-semibold">
+                            <i class="bi bi-printer me-2"></i> 3D Printer List
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
 </div>
 
